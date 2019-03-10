@@ -4,6 +4,8 @@ const bodyParser = require("body-parser");
 
 // db instance connection
 require("./config/db");
+var User = require('./api/models/userModel'),
+    jsonwebtoken = require("jsonwebtoken");
 
 const app = express();
 

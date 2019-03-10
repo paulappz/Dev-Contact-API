@@ -34,7 +34,7 @@ exports.signIn = (req, res) => {
 
 exports.loginRequired = (req, res, next) => {
     if (req.user) {
-        res.json({ message: 'Authorized User!'});
+        res.json({ message: 'Authorized User, Action Successful!'});
         next();
       } else {
          res.status(401).json({ message: 'Unauthorized user!' });
