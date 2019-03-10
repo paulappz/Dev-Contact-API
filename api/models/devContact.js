@@ -2,7 +2,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-// Create db schema
+// Create db schema for developers contact
 const ContactSchema = new Schema({
   firstname: {
     type: String,
