@@ -1,6 +1,7 @@
 'use strict';
 module.exports = function(app) {
   var contactList = require('../controllers/devContactListController');
+  var userHandlers = require('../controllers/authController');
 
   // contactList Routes
   app
@@ -17,5 +18,13 @@ module.exports = function(app) {
   app
   .route("/contacts/by/:category")
   .get(contactList.listCategoryContacts);
+
+  app
+  .route("/auth/register")
+  .post(userHandlers.register);
+
+  app
+  .route("/auth/sign_in")
+  .post(userHandlers.signIn);
 
 };
