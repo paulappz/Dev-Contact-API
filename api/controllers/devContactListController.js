@@ -47,10 +47,10 @@ exports.updateContact = (req, res) => {
   );
 };
 
-exports.deleteContact = (req, res) => {
-  Contact.deleteOne({ _id: req.params.contactid }, (err, contact) => {
+exports.deleteContact = async ( req, res) => { 
+  await Contact.deleteOne({ _id: req.params.contactid }, (err, contact) => {
     if (err) {
-      res.status(404).send(err);
+      return res.status(404).send(err);
     }
     res.status(200).json({ message: "Contact successfully deleted" });
   });

@@ -91,6 +91,17 @@ describe('Developers contact details', function () {
       });
   });
 
+  it('should list ALL developer contacts by fullstack category /contacts/by/fullstack GET', function (done) {
+    chai.request(server)
+      .get('/contacts/by/fullstack')
+      .end(function (err, res) {
+        res.should.have.status(200);
+        res.should.be.json;
+        res.body.should.be.a('array');
+        done();
+      });
+  });
+
   it('should list a developer contact details on /contact/<contactid> GET', function (done) {
     var newContact = new Contact({
       firstname: 'Paul',
