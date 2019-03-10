@@ -13,6 +13,20 @@ app.use(bodyParser.json());
 
 
 
+app.use((req, res, next) => {
+    if (req.headers && req.headers.authorization && req.headers.authorization.split(' ')[0] === 'JWT') {
+        jsonwebtoken.verify(req.headers.authorization.split(' ')[1],  'RESTfulAPIs', (err, decode) => {
+                if (err) req.user = undefined;
+                req.user = decode;
+                next();
+            });
+    } else {
+        req.user = undefined;
+        next();
+    }
+});
+
+
 // API ENDPOINTS
 var routes = require('./api/routes/devContactRoutes'); //importing route
 routes(app); 
