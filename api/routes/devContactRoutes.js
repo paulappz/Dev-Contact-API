@@ -13,7 +13,7 @@ module.exports = function(app) {
   .route("/contact/:contactid")
   .get(contactList.readContact)
   .put(contactList.updateContact)
-  .delete(contactList.deleteContact);
+  .delete(userHandlers.loginRequired,contactList.deleteContact);
 
   app
   .route("/contacts/by/:category")
