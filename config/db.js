@@ -2,7 +2,7 @@
 Therefore, use the cluster credentials 
 (username and password for mongodb atlas cluster) for this */
 
-//install mongodb using 'npm install mongoose'
+//install mongoose driver using 'npm install mongoose'
 
 // Load mongoose module 
 const mongoose = require("mongoose");

@@ -1,3 +1,5 @@
+// endpoint testing with mocha and chai and chai-http
+
 const chai = require('chai');
 const chaiHttp = require('chai-http');
 var server = require('../server');
@@ -37,9 +39,6 @@ describe('Developers contact details', function () {
     done();
 
   });
-  // afterEach(async () => {
-  //   await Contact.remove({})
-  // })
 
   it('should list ALL developer contacts on /contacts GET', function (done) {
     chai.request(server)
